@@ -4,14 +4,13 @@ $(window).on("load", function () {
     var p = $(this).prop('checked');
     if (p) {
       $('.mainFrame').eq(i)
-        .addClass('on');
-        $('.zone-selection').css('display','none');
+        .addClass('on');        
     }
   });
 
   $('[name=tab]').on('change', function () {
     var p = $(this).prop('checked');
-
+    // $('.zone-selection').css('display','none');
     var i = $('[name=tab]').index(this);
 
     $('.mainFrame').removeClass('on');
@@ -32,7 +31,7 @@ $(window).on("load", function () {
   var cropedImageData;
   $("#crop-save").on("click", function () {
     cropedImageData = $image.cropper("getCroppedCanvas").toDataURL();
-    console.log(cropedImageData);
+    //console.log(cropedImageData);
 
     // Generate Image After Crop
     generateImg(cropedImageData);
@@ -54,7 +53,7 @@ $(window).on("load", function () {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
-        console.log(e.target.result);
+        //console.log(e.target.result);
         $image.attr("src", e.target.result);
 
         cropFunction();
@@ -83,7 +82,7 @@ $(window).on("load", function () {
         useCORS: true,
       }).then((canvas) => {
         downloadImgDataUrl = canvas.toDataURL("image/jpeg", 1);
-        console.log(downloadImgDataUrl);
+        //console.log(downloadImgDataUrl);
         $(".finalCut").attr("src", downloadImgDataUrl);
       });
     }, 1);
