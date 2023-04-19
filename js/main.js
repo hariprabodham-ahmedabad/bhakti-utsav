@@ -89,11 +89,30 @@ $(window).on("load", function () {
   };
 
   $(".button--download").on("click", function () {
-    var link = document.createElement("a");
+//     var link = document.createElement("a");
+//     link.download = "download.jpg";
+//     link.href = downloadImgDataUrl;
+
+//     link.click();
+    
+     setTimeout(() => {
+      window.scrollTo(0, 0);
+      html2canvas(document.getElementById("capture"), {
+        logging: true,
+        letterRendering: 1,
+        allowTaint: false,
+        useCORS: true,
+      }).then((canvas) => {
+        downloadImgDataUrl = canvas.toDataURL("image/jpeg", 1);
+        console.log(downloadImgDataUrl);
+//         $(".finalCut").attr("src", downloadImgDataUrl);
+          var link = document.createElement("a");
     link.download = "download.jpg";
     link.href = downloadImgDataUrl;
 
     link.click();
+      });
+    }, 1);
   });
 
   window.dataLayer = window.dataLayer || [];
