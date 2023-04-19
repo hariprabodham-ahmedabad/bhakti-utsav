@@ -1,38 +1,17 @@
 $(window).on("load", function () {
-  // $(document).on('click', '.layout', function () {
-  //     let dataId = $(this).data('id');
-  //     $('.layout').removeClass('active');
-  //     $('.layout' + dataId).addClass('active');
-
-  //     if (dataId == 1) {
-  //         $('.abs-div').removeClass('abs-div2');
-  //         /* Crop Size */
-  //         aspX = 350;
-  //         aspY = 410;
-  //     } else {
-  //         $('.abs-div').removeClass('abs-div1');
-  //         /* Crop Size */
-  //         aspX = 560;
-  //         aspY = 408;
-  //     }
-  //     $('.abs-div').addClass('abs-div' + dataId);
-
-  //     $('.mainFrame').attr('src', 'img/full' + dataId + '.png');
-  //     $('#placeholder').attr('src', 'img/placeholder' + dataId + '.png');
-  // })
 
   $('[name=tab]').each(function (i, d) {
     var p = $(this).prop('checked');
     if (p) {
       $('.mainFrame').eq(i)
         .addClass('on');
+        $('.zone-selection').css('display','none');
     }
   });
 
   $('[name=tab]').on('change', function () {
     var p = $(this).prop('checked');
 
-    // $(type).index(this) == nth-of-type
     var i = $('[name=tab]').index(this);
 
     $('.mainFrame').removeClass('on');
