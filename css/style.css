@@ -572,7 +572,12 @@ header.fixHeader .header {
     height: 100%;
     object-fit: contain;
 }
-
+.mainFrame{
+    display: none;
+}
+.mainFrame.on{
+    display: block;
+}
 @media only all and (max-width: 1199px) {
     /* .container {
     max-width: 900px;

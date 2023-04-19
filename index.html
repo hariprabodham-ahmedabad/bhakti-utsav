@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shri HariPrabodham Bhakti Utsav</title>
     <!-- Stylesheets -->
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/cropper.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -20,18 +21,33 @@
                 <div class="mockup-left">
                     <h2>Shri HariPrabodham Bhakti Utsav</h2>
                     <ul>
-                        <li>26th April 2023 (Wed) - Gandhinagar</li>
-                        <li>27th April 2023 (Thu) - Bopal</li>
-                        <li>28th April 2023 (Fri) - Maninagar</li>
-                        <li>29th April 2023 (Sat) - Naroda</li>
-                        <li>30th April 2023 (Sun) - Ranip</li>
+                        <li>
+                            <input type="radio" id="tab1" name="tab" checked>
+                            <label for="tab1">26th April 2023 (Wed) - Gandhinagar</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="tab1" name="tab" checked>
+                            <label for="tab1">27th April 2023 (Thu) - Bopal</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="tab1" name="tab" checked>
+                            <label for="tab1">28th April 2023 (Fri) - Maninagar</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="tab1" name="tab" checked>
+                            <label for="tab1">29th April 2023 (Sat) - Naroda</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="tab1" name="tab" checked>
+                            <label for="tab1">30th April 2023 (Sun) - Ranip</label>
+                        </li>
                     </ul>
                     <div class="mockup-holder" id="capture">
-                        <img class="mainFrame" src="img/i_am_attending_gandhinagar.png" alt="" style="display: none;"/>
-                        <img class="mainFrame" src="img/i_am_attending_bopal.png" alt="" style="display: none;"/>
-                        <img class="mainFrame" src="img/i_am_attending_maninagar.png" alt="" style="display: none;"/>
-                        <img class="mainFrame" src="img/i_am_attending_naroda.png" alt="" style="display: none;"/>
-                        <img class="mainFrame" src="img/i_am_attending_nadipar.png" alt="" style="display: none;"/>
+                        <img class="mainFrame" src="img/i_am_attending_gandhinagar.png" alt="" />
+                        <img class="mainFrame" src="img/i_am_attending_bopal.png" alt="" />
+                        <img class="mainFrame" src="img/i_am_attending_maninagar.png" alt="" />
+                        <img class="mainFrame" src="img/i_am_attending_naroda.png" alt="" />
+                        <img class="mainFrame" src="img/i_am_attending_nadipar.png" alt="" />
                         <div class="abs-div abs-div2">
                             <img class="cropped border-radius" src="img/placeholder2.png" alt="Image" />
                         </div>
@@ -39,10 +55,11 @@
                 </div>
                 <div class="mockup-right">
                     <h3>Your Image <span>200 X 175</span></h3>
-                    <button type="button" class="uploadImg button" data-toggle="modal" data-target="#crop-modal" data-backdrop="static" data-keyboard="false">
-            <span class="clrRound"></span>
-            Upload Image
-          </button>
+                    <button type="button" class="uploadImg button" data-toggle="modal" data-target="#crop-modal"
+                        data-backdrop="static" data-keyboard="false">
+                        <span class="clrRound"></span>
+                        Upload Image
+                    </button>
                     <hr />
                     <button class="button button--download" disabled>Download</button>
                 </div>
@@ -59,8 +76,8 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal">
-            <span class="sr-only">Close</span>
-          </button>
+                        <span class="sr-only">Close</span>
+                    </button>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="placeholder-box">
@@ -77,8 +94,8 @@
                             <div class="text-right">
                                 <span class="popCancel" data-dismiss="modal">Cancel</span>
                                 <button id="crop-save" type="button" class="button" data-dismiss="modal">
-                  Done
-                </button>
+                                    Done
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -92,6 +109,26 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="js/cropper.js"></script>
     <script src="js/jquery-cropper.js"></script>
+    <script>
+        $('[name=tab]').each(function (i, d) {
+            var p = $(this).prop('checked');
+            //   console.log(p);
+            if (p) {
+                $('.mainFrame').eq(i)
+                    .addClass('on');
+            }
+        });
+
+        $('[name=tab]').on('change', function () {
+            var p = $(this).prop('checked');
+
+            // $(type).index(this) == nth-of-type
+            var i = $('[name=tab]').index(this);
+
+            $('.mainFrame').removeClass('on');
+            $('.mainFrame').eq(i).addClass('on');
+        });
+    </script>
     <script>
         var aspX = 200,
             aspY = 175;
