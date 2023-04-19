@@ -416,7 +416,6 @@ header.fixHeader .header {
 
 .mainContainer {
     background: #F8F8F8;
-    padding: 20px 0;
 }
 
 .relatedContainer {
@@ -597,6 +596,14 @@ header.fixHeader .header {
 }
 .mainFrame.on{
     display: block;
+}
+.mockup-left h2{
+    background: #ffebda;
+    padding: 10px;
+    margin: 0 -20px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #74431d;
 }
 @media only all and (max-width: 1199px) {
     .navigation ul li {
