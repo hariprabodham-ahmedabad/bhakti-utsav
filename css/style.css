@@ -575,11 +575,17 @@ header.fixHeader .header {
 .zone-selection{
     list-style-type: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}.zone-selection li label{
+    padding: 10px;
+    display: inline-block;
+    margin-right: 10px;
 }
 .zone-selection li input[type=radio]:checked~.label {
-    color: #a90a9c;
+    color: #d14c11;
     border-width: 5px;
-    background: rgba(169,10,156,.2);
+    background: rgb(169 27 10 / 24%);
     transition: .4s;
 }
 .mainFrame{
