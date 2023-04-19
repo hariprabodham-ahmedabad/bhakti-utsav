@@ -86,7 +86,7 @@ $(window).on("load", function () {
         useCORS: true,
       }).then((canvas) => {
         downloadImgDataUrl = canvas.toDataURL("image/jpeg", 1);
-        // console.log(downloadImgDataUrl);
+        console.log(downloadImgDataUrl);
         $(".finalCut").attr("src", downloadImgDataUrl);
       });
     }, 1);
