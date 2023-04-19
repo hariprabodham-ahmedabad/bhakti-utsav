@@ -21,6 +21,24 @@ $(window).on("load", function () {
   //     $('#placeholder').attr('src', 'img/placeholder' + dataId + '.png');
   // })
 
+  $('[name=tab]').each(function (i, d) {
+    var p = $(this).prop('checked');
+    if (p) {
+      $('.mainFrame').eq(i)
+        .addClass('on');
+    }
+  });
+
+  $('[name=tab]').on('change', function () {
+    var p = $(this).prop('checked');
+
+    // $(type).index(this) == nth-of-type
+    var i = $('[name=tab]').index(this);
+
+    $('.mainFrame').removeClass('on');
+    $('.mainFrame').eq(i).addClass('on');
+  });
+
   var $image = $("#placeholder"),
     cropBoxData,
     canvasData;
@@ -35,7 +53,7 @@ $(window).on("load", function () {
   var cropedImageData;
   $("#crop-save").on("click", function () {
     cropedImageData = $image.cropper("getCroppedCanvas").toDataURL();
-    // console.log(cropedImageData);
+    console.log(cropedImageData);
 
     // Generate Image After Crop
     generateImg(cropedImageData);
@@ -57,7 +75,7 @@ $(window).on("load", function () {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
       reader.onload = function (e) {
-        // console.log(e.target.result);
+        console.log(e.target.result);
         $image.attr("src", e.target.result);
 
         cropFunction();
